@@ -55,54 +55,47 @@ export function Experience() {
         <div className="max-w-3xl mx-auto relative z-10">
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-px" />
+            <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-border" />
 
             {experience.map((job, index) => (
               <motion.div
                 key={index}
-                className="relative mb-12 last:mb-0"
+                className="relative mb-8 last:mb-0 pl-10"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className={`flex flex-col md:flex-row gap-4 md:gap-8 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
-                  {/* Timeline dot */}
-                  <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background -translate-x-1.5 md:-translate-x-2 mt-1.5" />
+                {/* Timeline dot */}
+                <div className="absolute left-0 w-5 h-5 bg-primary rounded-full border-4 border-background top-6" />
 
-                  {/* Content */}
-                  <div className={`flex-1 ml-8 md:ml-0 ${index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
-                    <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors">
-                      <div className={`flex items-center gap-2 mb-2 ${index % 2 === 0 ? "md:justify-end" : ""}`}>
-                        <Briefcase className="h-4 w-4 text-primary" />
-                        <span className="font-semibold text-foreground">{job.role}</span>
-                      </div>
-                      
-                      <div className={`flex items-center gap-4 text-sm text-muted-foreground mb-4 ${index % 2 === 0 ? "md:justify-end" : ""}`}>
-                        <span className="font-medium text-primary">{job.company}</span>
-                        <span className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          {job.period}
-                        </span>
-                      </div>
-
-                      <p className="text-muted-foreground text-sm mb-4">
-                        {job.description}
-                      </p>
-
-                      <ul className={`space-y-2 ${index % 2 === 0 ? "md:text-right" : ""}`}>
-                        {job.achievements.map((achievement, i) => (
-                          <li key={i} className={`flex items-start gap-2 text-sm text-muted-foreground ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
-                            <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                            <span>{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                {/* Content Card */}
+                <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Briefcase className="h-4 w-4 text-primary flex-shrink-0" />
+                    <span className="font-semibold text-foreground">{job.role}</span>
+                  </div>
+                  
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground mb-4">
+                    <span className="font-medium text-primary">{job.company}</span>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="h-3 w-3 flex-shrink-0" />
+                      {job.period}
+                    </span>
                   </div>
 
-                  {/* Spacer for alternating layout */}
-                  <div className="hidden md:block flex-1" />
+                  <p className="text-muted-foreground text-sm mb-4">
+                    {job.description}
+                  </p>
+
+                  <ul className="space-y-2">
+                    {job.achievements.map((achievement, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
