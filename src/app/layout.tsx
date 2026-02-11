@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description: "Personal portfolio of a Data Engineer specializing in AWS cloud computing, data pipelines, and modern data infrastructure.",
   keywords: ["Data Engineer", "AWS", "Cloud Computing", "ETL", "Data Pipeline", "Python", "Spark"],
   icons: {
-    icon: "/icon.gif",
+    icon: "/icon.jpg",
   },
 };
 
