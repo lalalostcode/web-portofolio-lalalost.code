@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "Data Engineer Portfolio | AWS Cloud Specialist",
   description: "Personal portfolio of a Data Engineer specializing in AWS cloud computing, data pipelines, and modern data infrastructure.",
   keywords: ["Data Engineer", "AWS", "Cloud Computing", "ETL", "Data Pipeline", "Python", "Spark"],
+  icons: {
+    icon: "/icon.gif",
+  },
 };
 
 export default function RootLayout({
