@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { navLinks, personalInfo } from "@/lib/data"
+import { navLinks } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 
@@ -14,6 +14,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
   const pathname = usePathname()
+  const isHome = pathname === "/"
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -27,17 +28,21 @@ export function Navbar() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isHome && "md:left-1/2",
         scrolled
           ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent"
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className={cn("flex items-center justify-between h-16", isHome && "md:justify-end")}>
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl font-bold text-primary hover:opacity-80 transition-opacity"
+            className={cn(
+              "text-xl font-bold text-primary hover:opacity-80 transition-opacity",
+              isHome && "md:hidden"
+            )}
           >
             lalalost<span className="text-foreground">code</span>
           </Link>

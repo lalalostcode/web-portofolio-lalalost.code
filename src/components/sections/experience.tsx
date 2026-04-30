@@ -1,8 +1,9 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
-import { Briefcase, Calendar, CheckCircle2 } from "lucide-react"
-import { experience } from "@/lib/data"
+import { Briefcase, Calendar, CheckCircle2, MapPin } from "lucide-react"
+import { experience, personalInfo } from "@/lib/data"
 
 export function Experience() {
   return (
@@ -38,68 +39,91 @@ export function Experience() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Profile header */}
         <motion.div
-          className="text-center mb-12"
+          className="grid gap-8 md:grid-cols-[240px_1fr] items-start mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Work Experience
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            My professional journey building data infrastructure and cloud solutions.
-          </p>
+          <div className="flex justify-center md:justify-start">
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border border-border bg-card">
+              <Image
+                src="/icon.jpg"
+                alt={personalInfo.name}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+              About & Experience
+            </h2>
+            <p className="mt-3 text-muted-foreground">{personalInfo.title}</p>
+            <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+              <MapPin className="h-4 w-4 text-primary" />
+              {personalInfo.location}
+            </p>
+            <p className="mt-5 text-muted-foreground max-w-2xl">{personalInfo.bio}</p>
+          </div>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto relative z-10">
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-border" />
-
-            {experience.map((job, index) => (
-              <motion.div
-                key={index}
-                className="relative mb-8 last:mb-0 pl-10"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-0 w-5 h-5 bg-primary rounded-full border-4 border-background top-6" />
-
-                {/* Content Card */}
-                <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Briefcase className="h-4 w-4 text-primary flex-shrink-0" />
-                    <span className="font-semibold text-foreground">{job.role}</span>
-                  </div>
-                  
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground mb-4">
-                    <span className="font-medium text-primary">{job.company}</span>
-                    <span className="flex items-center gap-1">
-                      <Calendar className="h-3 w-3 flex-shrink-0" />
-                      {job.period}
-                    </span>
+        {/* Experience list */}
+        <div className="max-w-5xl mx-auto space-y-6">
+          {experience.map((job, index) => (
+            <motion.div
+              key={`${job.company}-${job.role}-${job.period}`}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: Math.min(index * 0.06, 0.24) }}
+              className="rounded-xl border border-border bg-card overflow-hidden"
+            >
+              <div className="grid gap-6 p-6 md:grid-cols-[1fr_200px] md:items-start">
+                <div>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <div className="flex items-center gap-2">
+                      <Briefcase className="h-4 w-4 text-primary" />
+                      <h3 className="text-lg font-semibold text-foreground">{job.role}</h3>
+                    </div>
+                    <span className="text-sm text-muted-foreground">•</span>
+                    <span className="text-sm font-medium text-primary">{job.company}</span>
                   </div>
 
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {job.description}
-                  </p>
+                  <div className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+                    <Calendar className="h-4 w-4" />
+                    {job.period}
+                  </div>
 
-                  <ul className="space-y-2">
+                  <p className="mt-4 text-sm text-muted-foreground">{job.description}</p>
+
+                  <ul className="mt-4 space-y-2">
                     {job.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <li
+                        key={i}
+                        className="flex items-start gap-2 text-sm text-muted-foreground"
+                      >
                         <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
                         <span>{achievement}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+
+                <div className="relative h-36 w-full rounded-lg border border-border bg-background/40 overflow-hidden md:h-44">
+                  <Image
+                    src={job.image || "/window.svg"}
+                    alt={`${job.company} illustration`}
+                    fill
+                    className="object-contain p-6"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

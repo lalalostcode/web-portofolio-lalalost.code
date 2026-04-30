@@ -8,38 +8,53 @@ import {
   Code2,
   Workflow,
   Container,
-  GitBranch,
-  Server,
   Cpu,
   Zap,
-  BarChart3,
   Layers,
+  Bot,
+  Sigma,
+  Brain,
+  Boxes,
+  Shield,
+  Network,
+  Check,
+  Globe,
+  Hand,
+  SlidersHorizontal,
 } from "lucide-react"
 import { skills } from "@/lib/data"
 
+type SkillItem = {
+  name: string
+  icon: string
+  link?: string
+}
+
 const iconMap: Record<string, React.ReactNode> = {
   python: <Code2 className="h-5 w-5" />,
+  code: <Code2 className="h-5 w-5" />,
   database: <Database className="h-5 w-5" />,
   terminal: <Terminal className="h-5 w-5" />,
-  typescript: <Code2 className="h-5 w-5" />,
   spark: <Zap className="h-5 w-5" />,
   airflow: <Workflow className="h-5 w-5" />,
   kafka: <Layers className="h-5 w-5" />,
-  dbt: <BarChart3 className="h-5 w-5" />,
-  pandas: <BarChart3 className="h-5 w-5" />,
-  lambda: <Cpu className="h-5 w-5" />,
-  glue: <Workflow className="h-5 w-5" />,
-  s3: <Cloud className="h-5 w-5" />,
-  redshift: <Database className="h-5 w-5" />,
-  athena: <Database className="h-5 w-5" />,
-  stepfunctions: <Workflow className="h-5 w-5" />,
-  emr: <Server className="h-5 w-5" />,
-  kinesis: <Zap className="h-5 w-5" />,
+  pipeline: <Workflow className="h-5 w-5" />,
   docker: <Container className="h-5 w-5" />,
-  terraform: <Cloud className="h-5 w-5" />,
-  git: <GitBranch className="h-5 w-5" />,
-  postgresql: <Database className="h-5 w-5" />,
   mongodb: <Database className="h-5 w-5" />,
+  cpu: <Cpu className="h-5 w-5" />,
+  sliders: <SlidersHorizontal className="h-5 w-5" />,
+  bot: <Bot className="h-5 w-5" />,
+  sigma: <Sigma className="h-5 w-5" />,
+  pandas: <Layers className="h-5 w-5" />,
+  brain: <Brain className="h-5 w-5" />,
+  cloud: <Cloud className="h-5 w-5" />,
+  boxes: <Boxes className="h-5 w-5" />,
+  workflow: <Workflow className="h-5 w-5" />,
+  shield: <Shield className="h-5 w-5" />,
+  network: <Network className="h-5 w-5" />,
+  check: <Check className="h-5 w-5" />,
+  globe: <Globe className="h-5 w-5" />,
+  hand: <Hand className="h-5 w-5" />,
 }
 
 const containerVariants = {
@@ -58,12 +73,13 @@ const itemVariants = {
 }
 
 export function Skills() {
-  // Combine all skills for cloud display
-  const allSkills = [
-    ...skills.languages,
-    ...skills.dataEngineering,
-    ...skills.aws,
-    ...skills.tools,
+  const groups: Array<{ title: string; items: SkillItem[] }> = [
+    { title: "Programming Languages", items: skills.programmingLanguages },
+    { title: "Data Engineering", items: skills.dataEngineering },
+    { title: "AI & LLM", items: skills.aiAndLlm },
+    { title: "Cloud & DevOps", items: skills.cloudAndDevOps },
+    { title: "Cybersecurity", items: skills.cybersecurity },
+    { title: "Human Languages", items: skills.humanLanguages },
   ]
 
   return (
@@ -133,23 +149,56 @@ export function Skills() {
 
         {/* Cloud/Tag Layout */}
         <motion.div
-          className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto"
+          className="grid gap-6 max-w-5xl mx-auto md:grid-cols-2"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {allSkills.map((skill, index) => (
+          {groups.map((group) => (
             <motion.div
-              key={skill.name}
+              key={group.title}
               variants={itemVariants}
-              whileHover={{ scale: 1.05, y: -2 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-primary hover:bg-accent hover:shadow-md transition-all cursor-default"
+              className="rounded-xl border border-border bg-card p-6"
             >
-              <span className="text-primary">
-                {iconMap[skill.icon] || <Code2 className="h-5 w-5" />}
-              </span>
-              <span className="text-sm font-medium text-foreground">{skill.name}</span>
+              <h3 className="text-sm font-semibold text-foreground mb-4">{group.title}</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {group.items.map((skill) => {
+                  const content = (
+                    <>
+                      <span className="text-primary">
+                        {iconMap[skill.icon] || <Code2 className="h-5 w-5" />}
+                      </span>
+                      <span className="text-sm font-medium text-foreground">{skill.name}</span>
+                    </>
+                  )
+
+                  if (skill.link) {
+                    return (
+                      <motion.a
+                        key={skill.name}
+                        href={skill.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.02, y: -1 }}
+                        className="flex items-center gap-2 rounded-lg border border-border bg-background/40 px-3 py-2 hover:border-primary hover:bg-accent transition-colors"
+                      >
+                        {content}
+                      </motion.a>
+                    )
+                  }
+
+                  return (
+                    <motion.div
+                      key={skill.name}
+                      whileHover={{ scale: 1.02, y: -1 }}
+                      className="flex items-center gap-2 rounded-lg border border-border bg-background/40 px-3 py-2 hover:border-primary hover:bg-accent transition-colors cursor-default"
+                    >
+                      {content}
+                    </motion.div>
+                  )
+                })}
+              </div>
             </motion.div>
           ))}
         </motion.div>
