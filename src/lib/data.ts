@@ -1,16 +1,16 @@
-// Portfolio Data - Update this file with your information
+// Portfolio Data — sourced exclusively from CV (Ilham Rafiqin, 28/04/2026)
+// Projects are from CV only. GitHub links are grabbed directly.
 
 export const personalInfo = {
   name: "Ilham Rafiqin",
   title: "Computer Engineering Student (GPA 3.79) • Data Engineering • LLMs • Cloud",
   email: "rafiqinilhambusship10@gmail.com",
   location: "Malang, Indonesia",
-  bio: "Final-year Computer Engineering student (GPA 3.79/4.0) specializing in robust data ecosystems and Large Language Model (LLM) architectures. Currently executing national digital initiatives at the Ministry of Communication and Digital Affairs (AITF), with recognition as 4th Place (joint awardee) at Budaya GO! (627 teams).",
+  bio: "Final-year Computer Engineering student (GPA 3.79/4.0) specializing in robust data ecosystems and Large Language Model (LLM) architectures. Currently executing national digital initiatives at the Ministry of Communication and Digital Affairs (AITF), applying analytical thinking to optimize technical workflows and solve complex architectural challenges. A systematic problem solver recognized as 4th Place in the Budaya GO! competition out of 627 applicants.",
   website: "https://lalalostcode.vercel.app",
   github: "https://github.com/lalalostcode",
   linkedin: "https://www.linkedin.com/in/ilham-rafiqin-969455289/",
   cv: "https://drive.google.com/file/d/1zkc-nb36sbXQB7SkuXe_RfpG5o3_bhZV/view?usp=sharing",
-  instagram: "",
 }
 
 export const skills = {
@@ -58,6 +58,8 @@ export const skills = {
   ],
 }
 
+// ─── PROJECTS (CV-sourced only) ───
+// User will update later; GitHub links grabbed directly from CV
 export const projects = [
   {
     id: "sekolah-rakyat-llm",
@@ -66,7 +68,7 @@ export const projects = [
     description: "200M+ token data curation + CPT/SFT pipelines for an education expert LLM initiative (AITF, Komdigi).",
     longDescription:
       "Contributed to the end-to-end workflow from data ingestion to inference for an Indonesia education expert LLM: web scraping, cleaning, filtering, continual pre-training (CPT), and collaboration across multiple stakeholder teams.",
-    image: "/globe.svg",
+    image: "",
     tags: ["Crawl4AI", "Playwright", "Qwen 3.5 (9B)", "Unsloth", "QLoRA", "SFT", "DPO/GRPO"],
     github: "",
     demo: "https://drive.google.com/file/d/1-fqx9AFPYVMPVlPDVtrWBJ604Jc_kR3G/view",
@@ -86,7 +88,7 @@ export const projects = [
     description: "RAG system + full-stack integration (Next.js + Three.js) for Topeng Malangan / Nusantara preservation (Budaya GO!).",
     longDescription:
       "Engineered a RAG system using Gemini API and Supabase to digitize oral traditions into a queryable knowledge base, integrated into a Next.js app with Three.js mask renderings for interactive cultural learning.",
-    image: "/window.svg",
+    image: "",
     tags: ["RAG", "Gemini API", "Supabase", "Next.js", "Three.js"],
     github: "",
     demo: "https://www.maltopia.app/id",
@@ -106,7 +108,7 @@ export const projects = [
     description: "Multi-commodity yield prediction system with Dockerized ETL orchestrated by Apache Airflow and a Star Schema warehouse.",
     longDescription:
       "Built a Docker-based ETL pipeline orchestrated by Apache Airflow for ingestion/transformation, designed a Star Schema warehouse for analytics, and implemented regression-based forecasting to support yield prediction.",
-    image: "/file.svg",
+    image: "",
     tags: ["Apache Airflow", "Docker", "ETL", "Star Schema", "Regression"],
     github: "https://github.com/lalalostcode/pid_smart_harvest",
     demo: "",
@@ -126,7 +128,7 @@ export const projects = [
     description: "Mobile-ready skin disease detection app using MobileNetV4.",
     longDescription:
       "Built a skin disease detection application leveraging MobileNetV4 for efficient on-device inference and practical deployment constraints.",
-    image: "/globe.svg",
+    image: "",
     tags: ["Computer Vision", "MobileNetV4", "On-device ML"],
     github: "https://github.com/lalalostcode/Scancer-Skin-Desease-Detection-App-Using-MobileNetV4",
     demo: "",
@@ -139,71 +141,14 @@ export const projects = [
     },
   },
   {
-    id: "modern-data-stack",
-    title: "Modern Data Stack (Learning Project)",
-    category: "Data Engineering",
-    description: "Hands-on modern data stack implementation (dbt, orchestration, and warehouse workflows).",
-    longDescription:
-      "A practical learning repository exploring modern analytics engineering patterns including transformation workflows and orchestration.",
-    image: "/file.svg",
-    tags: ["dbt", "Orchestration", "Analytics Engineering"],
-    github: "https://github.com/lalalostcode/modern-data-stack",
-    demo: "",
-    featured: false,
-    star: {
-      situation: "Modern data teams need repeatable patterns for transformation, orchestration, and analytics delivery.",
-      task: "Explore and implement modern data stack patterns in a reproducible repository.",
-      action: "Built a learning implementation focused on transformations and orchestration workflows.",
-      result: "Created a reproducible reference project to accelerate iteration on modern data stack patterns.",
-    },
-  },
-  {
-    id: "bank-marketing-cleaning",
-    title: "Cleaning Bank Marketing Campaign Data",
-    category: "Data Engineering",
-    description: "Data cleaning and preparation workflow for marketing campaign data.",
-    longDescription:
-      "Implemented structured data cleaning and preparation steps to improve dataset usability for downstream analysis and modeling.",
-    image: "/file.svg",
-    tags: ["Data Cleaning", "Pandas", "EDA"],
-    github: "https://github.com/lalalostcode/Cleaning-Bank-Marketing-Campaign-Data",
-    demo: "",
-    featured: false,
-    star: {
-      situation: "Real-world datasets often contain inconsistencies that block analysis and modeling.",
-      task: "Prepare a marketing campaign dataset for reliable analysis.",
-      action: "Applied data cleaning, validation, and preparation steps in a reproducible workflow.",
-      result: "Produced a cleaner dataset ready for analysis and downstream ML experiments.",
-    },
-  },
-  {
-    id: "rfid-smart-door-lock",
-    title: "RFID-Based Smart Door Lock System",
-    category: "IoT",
-    description: "RFID-based access control system for a smart door lock.",
-    longDescription:
-      "Built an RFID-based smart door lock prototype focusing on access control logic and embedded integration.",
-    image: "/window.svg",
-    tags: ["RFID", "Embedded", "IoT"],
-    github: "https://github.com/lalalostcode/RFID-BASED_SMART_DOOR_LOCK_SYSTEM",
-    demo: "",
-    featured: false,
-    star: {
-      situation: "Basic physical access control can benefit from simple, reliable electronic authentication.",
-      task: "Build a prototype RFID-based access system.",
-      action: "Implemented RFID authentication and access control logic as a smart door lock prototype.",
-      result: "Delivered a functional prototype demonstrating RFID-based access control.",
-    },
-  },
-  {
     id: "tinytorch",
-    title: "TinyTorch (Private / In Progress)",
+    title: "TinyTorch — Deep Learning Framework",
     category: "AI",
-    description: "A minimal deep learning framework project (private / not publicly linked).",
+    description: "A minimal deep learning framework exploring framework internals (private).",
     longDescription:
-      "A personal learning project exploring deep learning fundamentals and framework internals. The repository is currently private / not publicly linked.",
-    image: "/globe.svg",
-    tags: ["Deep Learning", "Autograd", "Learning Project"],
+      "A personal learning project exploring deep learning fundamentals and framework internals. The repository is currently private.",
+    image: "",
+    tags: ["Deep Learning", "Autograd", "Framework"],
     github: "",
     demo: "",
     featured: false,
@@ -216,6 +161,7 @@ export const projects = [
   },
 ]
 
+// ─── EXPERIENCE (CV-sourced) ───
 export const experience = [
   {
     company: "Artificial Intelligence Talent Factory (Komdigi)",
@@ -226,9 +172,9 @@ export const experience = [
     achievements: [
       "Developed scraping pipelines (Crawl4AI + Playwright) to curate 200M+ tokens; implemented filtering/noise reduction for Continual Pre-Training (CPT)",
       "Fine-tuned Qwen 3.5 (9B) via Unsloth + QLoRA on 80GB VRAM GPUs; implemented SFT and DPO/GRPO for alignment",
-      "Collaborated across 5 cross-functional teams and multiple stakeholders (Komdigi, Kemensos, Sekolah Rakyat)",
+      "Developing automated pipeline via OpenRouter for synthetic instruction-tuning datasets aligned with Indonesia educational curricula",
+      "Collaborating across 5 cross-functional teams and multiple stakeholders (Komdigi, Kemensos, Sekolah Rakyat)",
     ],
-    image: "/globe.svg",
   },
   {
     company: "Budaya GO! (Ministry of Culture, Indonesia)",
@@ -239,9 +185,8 @@ export const experience = [
     achievements: [
       "Engineered a RAG system (Gemini API + Supabase) to digitize oral traditions into a queryable knowledge base",
       "Integrated AI features with Next.js + Three.js 3D mask renderings for interactive cultural access",
-      "Ranked 4th out of 627 teams; recognized for technical implementation",
+      "Ranked 4th out of 627 teams; recognized for technical implementation by the Ministry of Culture",
     ],
-    image: "/window.svg",
   },
   {
     company: "FILKOM, Universitas Brawijaya",
@@ -254,29 +199,6 @@ export const experience = [
       "Designed a Star Schema data warehouse for analytics performance",
       "Developed regression-based forecasting to predict harvest yields",
     ],
-    image: "/file.svg",
-  },
-  {
-    company: "K-RISMA Bootcamp (FILKOM UB)",
-    role: "Vice Chairperson",
-    period: "Mar 2024 – Dec 2024",
-    description: "Research-focused student organization dedicated to academic innovation and competitions.",
-    achievements: [
-      "Led a research workshop for 70+ participants focusing on academic writing and sustainable innovation",
-      "Facilitated submission of 4 extended abstracts to CODE International Conference 2024",
-    ],
-    image: "/window.svg",
-  },
-  {
-    company: "POROS (Organization of Open Source), FILKOM UB",
-    role: "Cyber Security",
-    period: "Mar 2025 – Dec 2025",
-    description: "Open-source development and cybersecurity community in FILKOM UB.",
-    achievements: [
-      "Co-organized internal Capture The Flag (CTF) sessions and peer-led study groups",
-      "Managed institutional relations as public relations to foster external collaborations",
-    ],
-    image: "/globe.svg",
   },
   {
     company: "PSLD UB",
@@ -287,10 +209,30 @@ export const experience = [
       "Provided 1-on-1 academic assistance and classroom accessibility support",
       "Used basic Indonesian Sign Language (BISINDO) to bridge communication",
     ],
-    image: "/file.svg",
+  },
+  {
+    company: "K-RISMA Bootcamp (FILKOM UB)",
+    role: "Vice Chairperson",
+    period: "Mar 2024 – Dec 2024",
+    description: "Research-focused student organization dedicated to academic innovation and competitions.",
+    achievements: [
+      "Led a research workshop for 70+ participants focusing on academic writing and sustainable innovation",
+      "Facilitated submission of 4 extended abstracts to CODE International Conference 2024",
+    ],
+  },
+  {
+    company: "POROS (Organization of Open Source), FILKOM UB",
+    role: "Cyber Security",
+    period: "Mar 2025 – Dec 2025",
+    description: "Open-source development and cybersecurity community in FILKOM UB.",
+    achievements: [
+      "Co-organized internal Capture The Flag (CTF) sessions and peer-led study groups",
+      "Managed institutional relations as public relations to foster external collaborations",
+    ],
   },
 ]
 
+// ─── CERTIFICATIONS & CREDENTIALS (CV-sourced) ───
 export const certifications = [
   {
     id: "ub-ce",
@@ -306,7 +248,7 @@ export const certifications = [
     name: "Artificial Intelligence Talent Factory (AITF)",
     organizer: "Kementerian Komunikasi dan Digital (Komdigi)",
     year: "2026",
-    date: "2026",
+    date: "Feb 2026 – Jun 2026",
     link: "https://aitalent.id/",
     type: "Training",
   },
@@ -318,6 +260,15 @@ export const certifications = [
     date: "Dec 2025",
     link: "https://www.budayago.id/",
     type: "Award",
+  },
+  {
+    id: "gci-data-science",
+    name: "Data Science Cohort",
+    organizer: "GCI Global • Matsuo-Iwasawa Lab (U-Tokyo)",
+    year: "2026",
+    date: "Apr 2026 – Present",
+    link: "https://weblab.t.u-tokyo.ac.jp/en/lecture/gci/?utm_source=slack&utm_medium=social&utm_campaign=gci-2025",
+    type: "Training",
   },
   {
     id: "digitalent-llm",
@@ -342,34 +293,25 @@ export const certifications = [
     name: "AWS Certified Cloud Practitioner",
     organizer: "Amazon Web Services",
     year: "2026",
-    date: "Aug 2025 – Mar 2026",
+    date: "2026",
     link: "https://www.credly.com/badges/8a165a17-556c-4048-ba18-090b8667a5fa/linked_in_profile",
     type: "Certification",
   },
   {
     id: "gccx-komdigi-cyber",
-    name: "Cybersecurity Cohort (Google Cybersecurity)",
+    name: "Google Cybersecurity Professional Certificate",
     organizer: "GCC x Komdigi",
     year: "2025",
     date: "Aug 2025 – Nov 2025",
     link: "https://www.credly.com/badges/c95bed14-1ec9-4f54-ad5d-31d425bb4904",
     type: "Certification",
   },
-  {
-    id: "gci-data-science",
-    name: "Data Science Cohort",
-    organizer: "GCI Global • Matsuo-Iwasawa Lab (U-Tokyo)",
-    year: "2026",
-    date: "Apr 2026 – Present",
-    link: "https://weblab.t.u-tokyo.ac.jp/en/lecture/gci/?utm_source=slack&utm_medium=social&utm_campaign=gci-2025",
-    type: "Training",
-  },
 ]
 
-
+// ─── NAV (SPA sections, not pages) ───
 export const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/experience" },
-  { name: "Projects", href: "/projects" },
-  { name: "Get in Touch", href: "/contact" },
+  { name: "Home", href: "#hero" },
+  { name: "About", href: "#about" },
+  { name: "Works", href: "#works" },
+  { name: "Contact", href: "#contact" },
 ]

@@ -1,67 +1,89 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { navLinks } from "@/lib/data"
-import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
+
+const sections = [
+  { name: "Home", href: "#hero" },
+  { name: "About", href: "#about" },
+  { name: "Works", href: "#works" },
+  { name: "Contact", href: "#contact" },
+]
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
-  const pathname = usePathname()
-  const isHome = pathname === "/"
+  const [activeSection, setActiveSection] = React.useState("#hero")
 
   React.useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
+
+      const sectionElements = sections
+        .map((s) => ({
+          id: s.href,
+          el: document.querySelector(s.href.replace("#", "[id='") + "']"),
+        }))
+        .filter((s) => s.el)
+
+      for (let i = sectionElements.length - 1; i >= 0; i--) {
+        const el = sectionElements[i].el as HTMLElement
+        if (el.getBoundingClientRect().top <= 120) {
+          setActiveSection(sectionElements[i].id)
+          break
+        }
+      }
     }
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  function scrollToSection(href: string) {
+    setIsOpen(false)
+    const el = document.querySelector(href.replace("#", "[id='") + "']")
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isHome && "md:left-1/2",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-transparent"
+          ? "bg-white dark:bg-olive-dark/95 shadow-md shadow-black/5 dark:shadow-black/20 backdrop-blur-sm"
+          : "bg-white/95 dark:bg-transparent backdrop-blur-sm dark:backdrop-blur-none"
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={cn("flex items-center justify-between h-16", isHome && "md:justify-end")}>
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link
-            href="/"
-            className={cn(
-              "text-xl font-bold text-primary hover:opacity-80 transition-opacity",
-              isHome && "md:hidden"
-            )}
+          <button
+            onClick={() => scrollToSection("#hero")}
+            className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity"
           >
-            lalalost<span className="text-foreground">code</span>
-          </Link>
+            <span className="text-olive dark:text-white">lalalost</span>
+            <span className="text-sage">code</span>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
+            {sections.map((link) => (
+              <button
                 key={link.name}
-                href={link.href}
+                onClick={() => scrollToSection(link.href)}
                 className={cn(
-                  "px-4 py-2 rounded-md text-sm font-medium transition-colors",
-                  pathname === link.href
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                  "px-4 py-2 rounded-md text-sm font-medium transition-all duration-300",
+                  activeSection === link.href
+                    ? "text-sage bg-sage/10"
+                    : "text-olive/60 dark:text-white/60 hover:text-olive dark:hover:text-white hover:bg-olive/5 dark:hover:bg-white/5"
                 )}
               >
                 {link.name}
-              </Link>
+              </button>
             ))}
             <div className="ml-2">
               <ThemeToggle />
@@ -71,14 +93,12 @@ export function Navbar() {
           {/* Mobile menu button */}
           <div className="flex items-center gap-2 md:hidden">
             <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
+            <button
               onClick={() => setIsOpen(!isOpen)}
-              className="h-9 w-9"
+              className="p-2 rounded-md text-olive/70 dark:text-white/80 hover:text-olive dark:hover:text-white hover:bg-olive/5 dark:hover:bg-white/5 transition-colors"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
+            </button>
           </div>
         </div>
 
@@ -92,21 +112,20 @@ export function Navbar() {
               transition={{ duration: 0.2 }}
               className="md:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-1">
-                {navLinks.map((link) => (
-                  <Link
+              <div className="py-4 space-y-1 border-t border-olive/10 dark:border-sage/10">
+                {sections.map((link) => (
+                  <button
                     key={link.name}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => scrollToSection(link.href)}
                     className={cn(
-                      "block px-4 py-3 rounded-md text-base font-medium transition-colors",
-                      pathname === link.href
-                        ? "text-primary bg-primary/10"
-                        : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                      "block w-full text-left px-4 py-3 rounded-md text-base font-medium transition-colors",
+                      activeSection === link.href
+                        ? "text-sage bg-sage/10"
+                        : "text-olive/60 dark:text-white/60 hover:text-olive dark:hover:text-white hover:bg-olive/5 dark:hover:bg-white/5"
                     )}
                   >
                     {link.name}
-                  </Link>
+                  </button>
                 ))}
               </div>
             </motion.div>

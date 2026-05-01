@@ -1,17 +1,15 @@
 import { Hero } from "@/components/sections/hero"
-import { Skills } from "@/components/sections/skills"
-import { FeaturedProjects } from "@/components/sections/featured-projects"
-import { Experience } from "@/components/sections/experience"
-import { ContactCTA } from "@/components/sections/contact-cta"
+import { AboutExperience } from "@/components/sections/about-experience"
+import { WorksSection } from "@/components/sections/works-section"
+import { ContactSection } from "@/components/sections/contact-section"
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Skills />
-      <FeaturedProjects />
-      <Experience />
-      <ContactCTA />
+      <AboutExperience />
+      <WorksSection />
+      <ContactSection />
     </>
   )
 }

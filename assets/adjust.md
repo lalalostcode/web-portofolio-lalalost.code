@@ -1,86 +1,76 @@
-1. Landingpage Home
-I want the full is fully on the left side then we have some animation of anything animated on the rights side.
+# PRD: High-End Engineering Portfolio "lalalostcode"
 
-the contenth should be like my short summary. under the text should have icon for linkedin, github, email, cv, instagram. 
+## 1. Project Overview
+Membangun website portofolio satu halaman (*Single Page Application*) berperforma tinggi untuk **Ilham Rafiqin** (Nama panggung: **lalalostcode**). Website ini harus menunjukkan keahlian teknis tingkat tinggi sebagai mahasiswa Teknik Komputer dalam bidang **Data Engineering, AI, dan Cloud Computing**.
 
-on the top of right side we have nav bar on theese
+*   **Identitas Utama:** Ilham Rafiqin (lalalostcode), Mahasiswa Teknik Komputer Universitas Brawijaya (GPA 3.79, C1 Advanced English).
+*   **Vibe Desain:** "Structural Sophistication"—arsitektural, bersih, kokoh, dan profesional.
 
-1. home
-2. about
-3. projects
-5. Get in Touch 
+---
 
+## 2. Visual Identity & Typography
+*   **Branding:** Gunakan gaya dua warna pada teks **lalalost** (White) **code** (Sage Green) secara konsisten di *Navbar* dan *Hero Section*.
+*   **Palet Warna (Inspirasi Kahf):**
+    *   **Primary Background:** Deep Forest/Olive Green (`#3C4032`).
+    *   **Primary Accent:** Sage Green (`#8F9E8B`).
+    *   **Typography:** Pure White atau Pearl White untuk kontras tinggi di atas latar gelap.
+*   **Typography (Tech Professional):**
+    *   **Headings:** *Plus Jakarta Sans* atau *Outfit*.
+    *   **Body:** *Inter*.
+    *   **Terminal/Code:** *JetBrains Mono*.
 
-Ini adalah Product Requirements Document (PRD) lengkap yang dirancang khusus untuk diberikan kepada AI Agent. Dokumen ini menggabungkan struktur desain dari referensi yang kamu berikan dengan identitas profesional dan data teknis kamu.
+---
 
-PRD: Portfolio Adjustment - Structural Sophistication
-1. Project Overview
-Tujuan dari proyek ini adalah melakukan pemutakhiran pada bagian "About" dan "Works" di website portofolio yang sudah ada. Website ini harus mencerminkan identitas sebagai Computer Engineering Student yang fokus pada Data Engineering, AI, dan Cloud Computing.
+## 3. Site Architecture & Navigation
 
-Design Philosophy: "Structural Sophistication"—bersih, terstruktur secara arsitektural, dan profesional.
+### A. The Master Switch (Main Toggle)
+Implementasikan sistem navigasi dua lapis untuk mengorganisir data teknis yang padat:
+1.  **Level 1 (Toggle Utama):** Beralih antara **[ Selected Works ]** (Proyek) dan **[ Credentials & Expertise ]** (Sertifikasi & Akademik).
+2.  **Level 2 (Sub-Filtering):** Hanya muncul saat view "Projects" aktif. Filter terdiri dari: **AI, Data Engineering, IoT, dan Cloud Engineering**.
 
-Warna: Menggunakan palet yang sudah ada (Sage Green dan White).
+---
 
-Referensi Layout: FireShot Capture 002 - Afif's Portfolio - [www.afifalhauzan.me]_2.jpg (About & Experience) dan image_e284e0.jpg (Project Grid & Side Panel).
+## 4. Layout Specifications
 
-2. Page Architecture & Layout
-A. About Me & Experience Section
-Mengikuti struktur dari FireShot Capture 002 - Afif's Portfolio - [www.afifalhauzan.me]_2.jpg:
+### A. Hero Section (Stripe-Inspired)
+*   **Background:** **Dynamic Mesh Gradient** yang bergerak lambat (*slow-float*) dengan transisi warna Deep Olive dan Sage Green.
+*   **Hero Visual (Interactive Terminal):** Gantikan ilustrasi statis dengan *Glassmorphic Terminal Container* di sisi kanan.
+    *   **Logic (Framer Motion Typewriter):**
+        1. `$ whoami` -> Response: **Ilham Rafiqin** (White) **(lalalostcode)** (Sage).
+        2. `$ I am into` -> Dynamic Loop: `[Data Engineering]`, `[Cloud Computing]`, `[AI Development]`, `[IoT Systems]`.
+        3. `$ Experienced in` -> Dynamic Loop: `[AITF Kemenkomdigi]`, `[Budaya GO! (Top 10)]`, `[Sekolah Rakyat Project]`.
 
-Header Profil: Foto profil di kiri dan deskripsi bio singkat di kanan yang menonjolkan spesialisasi AI dan Data Engineering.
+### B. About & Experience Section
+Merujuk pada struktur layout daftar vertikal:
+*   **Hero Profile:** Foto profil di kiri, bio profesional di kanan yang menonjolkan profil akademik.
+*   **Experience List:** Menampilkan pengalaman di **AI Talent Factory (AITF)** dan kepemimpinan di proyek **Sekolah Rakyat**.
+*   **Visual Proof:** Tampilkan gambar dokumentasi/foto di sisi kanan setiap baris pengalaman.
 
-Experience List: Daftar vertikal pengalaman profesional dan organisasi.
+### C. Projects Grid & Side Drawer
+Merujuk pada struktur `image_e284e0.jpg` dan `image_e2901e.jpg`:
+*   **Grid Layout:** Menampilkan kartu proyek secara responsif dengan efek *glassmorphism*.
+*   **Interaction (Side Drawer):** Klik pada kartu akan membuka panel dari sisi kanan (overlay).
+*   **Content Drawer:** Deskripsi teknis menggunakan metode $S.T.A.R.$ (Situation, Task, Action, Result).
 
-Setiap item memiliki detail: Nama Organisasi, Peran, Tahun, dan Deskripsi singkat.
+### D. Contact Section: "Get in Touch"
+*   **Visual Header:** **get in** (White) **touch** (Sage Green).
+*   **Contact Form:** Formulir pesan (Name, Email, Subject, Message) dengan integrasi fungsional ke email pribadi.
+*   **Social Connectivity:** Tampilkan ikon minimalis untuk GitHub (lalalostcode), LinkedIn (Ilham Rafiqin), dan Email.
 
-Tampilkan foto/gambar terkait di sisi kanan setiap item pengalaman.
+---
 
-Tech Stack Grid: Tampilkan ikon tools (seperti Python, PyTorch, Airflow, Docker, AWS) yang dikelompokkan secara logis.
+## 5. Content Mapping (Source: Attached CV & Profile)
+*Instruksi: Ambil semua detail teknis secara eksklusif dari data di bawah ini atau file CV yang dilampirkan.*
 
-B. The "Master Switch" (Works & Credentials)
-Implementasikan sistem navigasi dua lapis untuk memisahkan karya dan bukti kompetensi:
+*   **AI Category:** **Sekolah Rakyat** (LLM content), **TinyTorch** (Deep Learning framework), **Scancer** (Skin disease detection), **Maltopia**.
+*   **Data Engineering Category:** **Smart Harvest** (ETL pipeline) menggunakan *Apache Airflow* dan *Docker*.
+*   **Cloud Engineering Category:** Persiapan **AWS Certified Cloud Practitioner**.
+*   **Credentials & Awards:** Top 10 Finalist **Budaya GO! 2025**, AITF Intern di Kemenkomdigi, IPK 3.79.
 
-Toggle Utama: Tombol untuk beralih antara [ Projects ] dan [ Certifications & Training ].
+---
 
-Sub-Filter (Hanya untuk Projects): Empat kategori filter: AI, Data Engineering, IoT, dan Cloud Engineering.
-
-3. Functional Specifications
-View 1: Projects (Grid + Side Panel)
-Grid Layout: Menampilkan kartu proyek secara responsif.
-
-Interaction (Side Panel): Merujuk pada image_e284e0.jpg, setiap kartu yang diklik harus membuka panel samping (Right-Side Drawer).
-
-Isi Panel:
-
-Judul Proyek.
-
-Tag Teknologi.
-
-Deskripsi S.T.A.R (Situation, Task, Action, Result).
-
-Link Repository GitHub.
-
-View 2: Certifications & Training (List View)
-Layout: Berubah dari bentuk grid menjadi Vertical Structural List.
-
-Data Fields: Menampilkan Tahun, Nama Sertifikasi/Event, Penyelenggara, dan Link bukti kredensial.
-
-4. Content Mapping (Source: CV)
-Instruksi untuk Agent: Ambil detail data dari file CV yang dilampirkan.
-
-AI Category: Sertakan proyek Sekolah Rakyat (LLM), TinyTorch (Framework), Scancer (Deep Learning), dan Maltopia.
-
-Data Engineering: Sertakan Smart Harvest (ETL Pipeline) dan proyek otomasi data lainnya.
-
-Cloud Engineering: Fokus pada persiapan AWS Certified Cloud Practitioner.
-
-Certifications & Training: Masukkan AI Talent Factory (Kemenkomdigi), Top 10 Finalist Budaya GO! 2025, dan latar belakang akademik (IPK 3.79).
-
-5. Technical & UI Requirements
-Framework: React/Next.js dengan Tailwind CSS.
-
-Animations: Gunakan transisi halus (fade atau slide) untuk perpindahan antar view dan pembukaan side panel.
-
-Responsiveness: Layout wajib mobile-friendly, di mana grid dan panel akan bertumpuk secara vertikal pada layar kecil.
-
-Constraint Warna: Dilarang menggunakan palet warna dari gambar referensi. Wajib menggunakan Sage Green dan White sesuai sistem yang sudah ada
+## 6. Technical Requirements
+1.  **Strict Palette Compliance:** Dilarang menggunakan warna di luar turunan Sage Green, Deep Olive, dan White.
+2.  **Animations:** Implementasikan `framer-motion` untuk efek *typing* terminal, transisi navigasi, dan pembukaan *side drawer*.
+3.  **Framework:** Next.js (App Router) + Tailwind CSS + TypeScript.
+4.  **No Hallucinations:** Ambil deskripsi teknis (seperti *Kafka, Terraform, uv, MobileNet V4*) murni dari data yang disediakan.

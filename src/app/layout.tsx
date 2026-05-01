@@ -1,24 +1,41 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-heading",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Data Engineer Portfolio | AWS Cloud Specialist",
-  description: "Personal portfolio of a Data Engineer specializing in AWS cloud computing, data pipelines, and modern data infrastructure.",
-  keywords: ["Data Engineer", "AWS", "Cloud Computing", "ETL", "Data Pipeline", "Python", "Spark"],
+  title: "lalalostcode — Ilham Rafiqin | Data Engineering • AI • Cloud",
+  description:
+    "Portfolio of Ilham Rafiqin (lalalostcode) — Computer Engineering student (GPA 3.79) specializing in Data Engineering, AI/LLM architectures, and Cloud Computing.",
+  keywords: [
+    "Ilham Rafiqin",
+    "lalalostcode",
+    "Data Engineer",
+    "AI Engineer",
+    "Cloud Computing",
+    "LLM",
+    "Portfolio",
+  ],
   icons: {
     icon: "/icon.jpg",
   },
@@ -32,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${plusJakarta.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -41,9 +58,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="min-h-screen">
-            {children}
-          </main>
+          <main>{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
