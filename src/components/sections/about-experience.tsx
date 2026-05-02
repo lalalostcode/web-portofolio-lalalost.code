@@ -82,7 +82,7 @@ export function AboutExperience() {
           <div className="flex justify-center md:justify-start">
             <div className="relative w-48 h-48 sm:w-52 sm:h-52 rounded-2xl overflow-hidden border border-sage/20">
               <Image
-                src="/icon.jpg"
+                src="C:\Local D\Galeri Belajar\Project\my-portofolio\public\pasfotoprofesional.png"
                 alt={personalInfo.name}
                 fill
                 className="object-cover"
