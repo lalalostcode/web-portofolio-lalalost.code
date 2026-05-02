@@ -150,9 +150,9 @@ function TerminalLine({
 
   return (
     <div className="space-y-1">
-      <p className="font-mono text-sm text-[#C89B7B]">
+      <p className="font-mono text-sm text-white/90">
         {cmd}
-        {!cmdDone && <span className="animate-pulse text-white/80 ml-1">▌</span>}
+        {!cmdDone && <span className="animate-pulse text-sage ml-1">▌</span>}
       </p>
       {cmdDone && line.type === "static" && (
         <StaticResponse response={line.response} onDone={onDone} />
@@ -360,8 +360,8 @@ export function Hero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
-                <span className="text-olive dark:text-white">lalalost</span>
-                <span className="text-sage">code</span>
+                <span className="text-olive dark:text-white">Hi!, I&apos;m </span>
+                <span className="text-sage">Ilham</span>
               </h1>
               <p className="mt-2 text-lg text-olive/50 dark:text-white/50 font-medium">
                 {personalInfo.name}
