@@ -366,11 +366,11 @@ export function Hero() {
             >
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
                 <span className="text-olive dark:text-white">Hi!, I&apos;m </span>
-                <span className="text-sage">Ilham</span>
+                <span className="text-sage">Ilham Rafiqin</span>
               </h1>
-              <p className="mt-2 text-lg text-olive/50 dark:text-white/50 font-medium">
-                {personalInfo.name}
-              </p>
+              <p className="mt-2 text-lg text-olive/50 dark:text-white/50 font-medium italic"> 
+  /eel-hum/ 
+</p>
             </motion.div>
 
             <motion.p
