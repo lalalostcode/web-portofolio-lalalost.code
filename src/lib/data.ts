@@ -10,7 +10,7 @@ export const personalInfo = {
   website: "https://lalalostcode.vercel.app",
   github: "https://github.com/lalalostcode",
   linkedin: "https://www.linkedin.com/in/ilham-rafiqin-969455289/",
-  cv: "https://drive.google.com/file/d/1zkc-nb36sbXQB7SkuXe_RfpG5o3_bhZV/view?usp=sharing",
+  cv: "https://drive.google.com/file/d/1K1IZQ1xiSg_Hjc7_cvEuW-dnB8Jgccpy/view?usp=sharing",
 }
 
 export const skills = {
