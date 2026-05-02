@@ -127,7 +127,7 @@ export function AboutExperience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: Math.min(index * 0.08, 0.3) }}
-              className="glass-card rounded-xl overflow-hidden hover:border-sage/30 transition-all duration-300"
+              className="glass-card rounded-xl overflow-hidden hover:bg-foreground/[0.03] dark:hover:bg-background/40 hover:border-sage/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300"
             >
               <div className="p-6">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
@@ -183,7 +183,7 @@ export function AboutExperience() {
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="glass-card rounded-xl p-5"
+                className="glass-card rounded-xl p-5 hover:bg-foreground/[0.03] dark:hover:bg-background/40 hover:border-sage/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300"
               >
                 <h4 className="text-sm font-semibold text-sage mb-3">
                   {group.title}

@@ -53,8 +53,8 @@ export function ContactSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-            <span className="text-foreground">get in </span>
-            <span className="text-sage">touch</span>
+            <span className="text-foreground">Get in </span>
+            <span className="text-sage">touch!</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg max-w-lg mx-auto">
             Have a project in mind or want to collaborate? I&apos;d love to hear from you.
@@ -69,7 +69,7 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="glass-card rounded-xl p-6 sm:p-8">
+            <div className="glass-card rounded-xl p-6 sm:p-8 hover:bg-foreground/[0.03] dark:hover:bg-background/40 hover:border-sage/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
               {isSubmitted ? (
                 <div className="text-center py-12">
                   <CheckCircle className="h-16 w-16 text-sage mx-auto mb-4" />
@@ -170,7 +170,7 @@ export function ContactSection() {
             viewport={{ once: true }}
           >
             {/* Email */}
-            <div className="glass-card rounded-xl p-5">
+            <div className="glass-card rounded-xl p-5 hover:bg-foreground/[0.03] dark:hover:bg-background/40 hover:border-sage/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-sage/10 flex items-center justify-center">
                   <Mail className="h-5 w-5 text-sage" />
@@ -188,7 +188,7 @@ export function ContactSection() {
             </div>
 
             {/* Social links */}
-            <div className="glass-card rounded-xl p-5">
+            <div className="glass-card rounded-xl p-5 hover:bg-foreground/[0.03] dark:hover:bg-background/40 hover:border-sage/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
               <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4">Connect</p>
               <div className="space-y-3">
                 <SocialRow
@@ -214,7 +214,7 @@ export function ContactSection() {
             </div>
 
             {/* Tip card */}
-            <div className="glass-card rounded-xl p-5 border-sage/15">
+            <div className="glass-card rounded-xl p-5 border-sage/15 hover:bg-foreground/[0.03] dark:hover:bg-background/40 hover:border-sage/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
               <p className="text-sm text-muted-foreground leading-relaxed">
                 <span className="text-sage font-medium">💡 Tip:</span> For project inquiries, include details about your timeline and requirements for a faster response.
               </p>

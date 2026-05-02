@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback, useRef } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Github, Linkedin, Mail, FileText } from "lucide-react"
-import { personalInfo } from "@/lib/data"
+import { personalInfo, skills } from "@/lib/data"
 
 /* ─── Terminal content definitions ─── */
 type StaticLine = {
@@ -26,34 +26,46 @@ type CyclingLine = {
 
 type TerminalLineData = StaticLine | ProgressLine | CyclingLine
 
+const allSkills = [
+  ...skills.programmingLanguages,
+  ...skills.dataEngineering,
+  ...skills.aiAndLlm,
+  ...skills.cloudAndDevOps,
+  ...skills.cybersecurity,
+  ...skills.humanLanguages,
+].map(s => s.name)
+
 const TERMINAL_LINES: TerminalLineData[] = [
+  {
+    command: "$ login --user lalalostcode",
+    type: "progress",
+  },
   {
     command: "$ whoami",
     type: "static",
     response: (
       <span>
-        <span className="text-olive dark:text-white font-semibold">Ilham Rafiqin</span>{" "}
-        <span className="text-sage">(lalalostcode)</span>
+        <span className="text-emerald-300 font-semibold">Ilham Rafiqin</span>{" "}
+        <span className="text-emerald-500">(lalalostcode)</span>
       </span>
     ),
   },
   {
-    command: "$ sudo apt install skills",
-    type: "progress",
-  },
-  {
-    command: "$ status --current",
-    type: "cycling",
-    responses: [
-      "Building TinyTorch",
-      "AITF Interning",
-      "ETL Pipeline Ops",
-    ],
+    command: "$ cat experience.txt",
+    type: "static",
+    response: (
+      <span className="text-emerald-400">Data Engineer / AI Engineer</span>
+    ),
   },
   {
     command: "$ fetch --interests",
     type: "cycling",
     responses: ["AI", "Data Eng", "Cloud", "IoT"],
+  },
+  {
+    command: "$ fetch --tools",
+    type: "cycling",
+    responses: allSkills.length > 0 ? allSkills : ["Python", "Docker", "AWS"],
   },
 ]
 
@@ -138,9 +150,9 @@ function TerminalLine({
 
   return (
     <div className="space-y-1">
-      <p className="font-mono text-sm text-olive/60 dark:text-sage/80">
+      <p className="font-mono text-sm text-emerald-400">
         {cmd}
-        {!cmdDone && <span className="animate-pulse text-sage">▌</span>}
+        {!cmdDone && <span className="animate-pulse text-emerald-400">▌</span>}
       </p>
       {cmdDone && line.type === "static" && (
         <StaticResponse response={line.response} onDone={onDone} />
@@ -179,7 +191,7 @@ function StaticResponse({
       initial={{ opacity: 0, x: -8 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3 }}
-      className="pl-4 text-sm text-foreground"
+      className="pl-4 text-sm text-emerald-300"
     >
       {response}
     </motion.div>
@@ -212,11 +224,11 @@ function ProgressBar({ onDone }: { onDone: () => void }) {
       animate={{ opacity: 1 }}
       className="pl-4 font-mono text-sm"
     >
-      <span className="text-sage/70">[</span>
-      <span className="text-sage font-semibold">{bar}</span>
-      <span className="text-sage/70">]</span>
-      <span className="text-olive/50 dark:text-white/60 ml-2">{progress}%</span>
-      {progress >= 100 && <span className="text-sage ml-2">✓ done</span>}
+      <span className="text-emerald-500">[</span>
+      <span className="text-emerald-400 font-semibold">{bar}</span>
+      <span className="text-emerald-500">]</span>
+      <span className="text-emerald-300 ml-2">{progress}%</span>
+      {progress >= 100 && <span className="text-emerald-400 ml-2">✓ done</span>}
     </motion.div>
   )
 }
@@ -258,8 +270,8 @@ function CyclingResponse({
       transition={{ duration: 0.3 }}
       className="pl-4"
     >
-      <span className="text-sm text-olive/80 dark:text-white/90 font-mono">
-        {"["}<span className="text-sage font-semibold">{items[index]}</span>{"]"}
+      <span className="text-sm text-emerald-300 font-mono">
+        {"["}<span className="text-emerald-400 font-semibold">{items[index]}</span>{"]"}
       </span>
     </motion.div>
   )
@@ -282,12 +294,12 @@ function BackgroundTerminal({
         <div className="w-2 h-2 rounded-full bg-olive/15 dark:bg-white/15" />
         <div className="w-2 h-2 rounded-full bg-olive/15 dark:bg-white/15" />
         <div className="w-2 h-2 rounded-full bg-olive/15 dark:bg-white/15" />
-        <span className="ml-2 text-[10px] text-olive/15 dark:text-white/15 font-mono">{title}</span>
+        <span className="ml-2 text-[10px] text-slate-400 font-mono">{title}</span>
       </div>
       {/* Static code lines */}
       <div className="space-y-0.5">
         {lines.map((line, i) => (
-          <p key={i} className="font-mono text-[11px] text-olive/15 dark:text-white/20 leading-relaxed whitespace-pre">
+          <p key={i} className="font-mono text-[11px] text-slate-500 leading-relaxed whitespace-pre">
             {line}
           </p>
         ))}
@@ -442,7 +454,7 @@ export function Hero() {
                   <div className="w-3 h-3 rounded-full bg-red-500/70" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
                   <div className="w-3 h-3 rounded-full bg-green-500/70" />
-                  <span className="ml-3 text-xs text-olive/30 dark:text-white/30 font-mono">terminal — lalalostcode</span>
+                  <span className="ml-3 text-xs text-slate-400 font-mono">terminal — lalalostcode</span>
                 </div>
 
                 {/* Terminal content */}
@@ -459,13 +471,13 @@ export function Hero() {
                   )}
                   {activeLine >= TERMINAL_LINES.length && (
                     <motion.div
-                      className="font-mono text-sm text-olive/30 dark:text-sage/50 flex flex-col gap-1"
+                      className="font-mono text-sm text-emerald-500 flex flex-col gap-1"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 1 }}
                     >
                       <p>$ <span className="animate-pulse">▌</span></p>
-                      <p className="text-xs text-olive/20 dark:text-sage/30 mt-4 italic">Restarting sequence shortly...</p>
+                      <p className="text-xs text-emerald-600 mt-4 italic">Restarting sequence shortly...</p>
                     </motion.div>
                   )}
                 </div>

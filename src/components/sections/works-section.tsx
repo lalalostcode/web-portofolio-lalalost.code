@@ -161,7 +161,7 @@ export function WorksSection() {
                       onClick={() => openProject(project.id)}
                       className="text-left w-full group"
                     >
-                      <div className="glass-card rounded-xl overflow-hidden h-full hover:border-sage/30 transition-all duration-300">
+                      <div className="glass-card rounded-xl overflow-hidden h-full hover:bg-foreground/[0.03] dark:hover:bg-background/40 hover:border-sage/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300">
                         {/* Gradient header */}
                         <div className="relative h-36 bg-gradient-to-br from-sage/15 via-sage/5 to-transparent overflow-hidden">
                           <div className="absolute inset-0 flex items-center justify-center">
@@ -214,7 +214,7 @@ export function WorksSection() {
                 <SheetContent
                   side={drawerSide}
                   className={cn(
-                    "bg-white dark:bg-[#2d3126] border-sage/20",
+                    "bg-white dark:bg-[#2d3126] border-sage/20 overflow-y-auto max-h-screen",
                     drawerSide === "bottom" &&
                       "inset-x-0 bottom-0 w-full sm:max-w-none border-t"
                   )}
@@ -304,7 +304,7 @@ export function WorksSection() {
                     initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="glass-card rounded-xl p-5 hover:border-sage/30 transition-all duration-300"
+                    className="glass-card rounded-xl p-5 hover:bg-foreground/[0.03] dark:hover:bg-background/40 hover:border-sage/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                       <div className="flex items-start gap-3">
