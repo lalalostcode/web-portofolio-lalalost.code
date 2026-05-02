@@ -85,7 +85,7 @@ export function AboutExperience() {
                 src="/pasfotoprofesional.png"
                 alt={personalInfo.name}
                 fill
-                className="object-cover"
+                className="object-cover object-[50%_20%]"
                 priority
               />
               {/* Subtle overlay */}
