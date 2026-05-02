@@ -54,7 +54,7 @@ const TERMINAL_LINES: TerminalLineData[] = [
     command: "$ cat experience.txt",
     type: "static",
     response: (
-      <span className="text-[#C89B7B]">Data Engineer <span className="text-white/50">/</span> AI Engineer</span>
+      <span className="text-sage">Data Engineer <span className="text-white/50">/</span> AI Engineer</span>
     ),
   },
   {
@@ -148,10 +148,15 @@ function TerminalLine({
 }) {
   const { displayed: cmd, isDone: cmdDone } = useTypewriter(line.command, 45, delay)
 
+  const parts = cmd.split(" ")
+  const baseCmd = parts.slice(0, 2).join(" ")
+  const args = parts.slice(2).join(" ")
+
   return (
     <div className="space-y-1">
-      <p className="font-mono text-sm text-white/90">
-        {cmd}
+      <p className="font-mono text-sm">
+        <span className="text-white/90">{baseCmd}</span>
+        {args && <span className="text-[#C89B7B]"> {args}</span>}
         {!cmdDone && <span className="animate-pulse text-sage ml-1">▌</span>}
       </p>
       {cmdDone && line.type === "static" && (
@@ -272,7 +277,7 @@ function CyclingResponse({
     >
       <span className="text-sm text-white/80 font-mono">
         <span className="text-[#C89B7B]">{"["}</span>
-        <span className="text-sage font-semibold px-1">{items[index]}</span>
+        <span className="text-white/90 font-semibold px-1">{items[index]}</span>
         <span className="text-[#C89B7B]">{"]"}</span>
       </span>
     </motion.div>
